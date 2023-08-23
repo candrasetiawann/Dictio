@@ -6,7 +6,7 @@ type themeState = {
 }
 
 const useTheme = create<themeState>((set) => ({
-  darkMode:localStorage.getItem('darkMode') === 'true',
+  darkMode: typeof window !== 'undefined' ? localStorage.getItem('darkMode') === 'true' : false,
   changeMode:()=>{
     set((state) => {
       const newDarkMode = !state.darkMode
