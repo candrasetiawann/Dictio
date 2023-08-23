@@ -28,12 +28,12 @@ interface ResultProps {
 const ResultMeaning: React.FC<{ meaning: Meaning }> = ({ meaning }) => {
   return (
     <div>
-      <h4 className="text-zinc-200 text-xl font-bold">{meaning.partOfSpeech}</h4>
+      <h4 className="text-zinc-800 dark:text-zinc-200 text-xl font-bold">{meaning.partOfSpeech}</h4>
       {meaning.definitions.map((definition, definitionIndex) => (
-        <ul className="pl-6 list-disc" key={definitionIndex}>
-          <li className="text-zinc-200">{definition.definition}</li>
+        <ul className="pl-6 list-disc marker:text-indigo-600 " key={definitionIndex}>
+          <li className="text-zinc-800 dark:text-zinc-200">{definition.definition}</li>
           {/* eslint-disable-next-line react/no-unescaped-entities */}
-          <p className="text-zinc-400 italic px-10 py-5 text-sm">"{definition?.example}"</p>
+          <p className="text-zinc-600 dark:text-zinc-400 italic px-10 py-5 text-sm">"{definition?.example}"</p>
         </ul>
       ))}
     </div>
@@ -46,7 +46,7 @@ const ResultView: React.FC<ResultProps> = ({ searchResults }) => {
       <div className="pb-10">
         {searchResults?.map((result, index) => (
           <ul key={index}>
-            <h1 className="text-zinc-200 text-5xl font-bold mt-8" >{result.word.charAt(0).toUpperCase() + result.word.slice(1)}</h1>
+            <h1 className="text-zinc-800 dark:text-zinc-200 text-5xl font-bold mt-8" >{result.word.charAt(0).toUpperCase() + result.word.slice(1)}</h1>
             <p className="text-indigo-600 pt-4 pb-8" >{result.phonetic}</p>
             {result.meanings.map((meaning, meaningIndex) => (
               <ResultMeaning key={meaningIndex} meaning={meaning} />
